@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,10 +20,10 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="#" className="text-slate-600 hover:text-blue-600 font-medium">Início</a>
-          <a href="#" className="text-slate-600 hover:text-blue-600 font-medium">Sobre</a>
-          <a href="#" className="text-slate-600 hover:text-blue-600 font-medium">Serviços</a>
-          <a href="#" className="text-slate-600 hover:text-blue-600 font-medium">Depoimentos</a>
+          <Link to="/" className="text-slate-600 hover:text-blue-600 font-medium">Início</Link>
+          <Link to="/sobre" target="_blank" className="text-slate-600 hover:text-blue-600 font-medium">Sobre</Link>
+          <Link to="/servicos" target="_blank" className="text-slate-600 hover:text-blue-600 font-medium">Serviços</Link>
+          <Link to="/depoimentos" target="_blank" className="text-slate-600 hover:text-blue-600 font-medium">Depoimentos</Link>
         </div>
 
         {/* CTA Button */}
@@ -43,10 +44,10 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white border-t p-4 flex flex-col gap-4">
-          <a href="#" className="text-slate-600 font-medium">Início</a>
-          <a href="#" className="text-slate-600 font-medium">Sobre</a>
-          <a href="#" className="text-slate-600 font-medium">Serviços</a>
-          <a href="#" className="text-slate-600 font-medium">Depoimentos</a>
+          <Link to="/" onClick={() => setIsOpen(false)} className="text-slate-600 font-medium">Início</Link>
+          <Link to="/sobre" target="_blank" onClick={() => setIsOpen(false)} className="text-slate-600 font-medium">Sobre</Link>
+          <Link to="/servicos" target="_blank" onClick={() => setIsOpen(false)} className="text-slate-600 font-medium">Serviços</Link>
+          <Link to="/depoimentos" target="_blank" onClick={() => setIsOpen(false)} className="text-slate-600 font-medium">Depoimentos</Link>
           <button className="bg-blue-600 text-white px-6 py-2 rounded-full font-medium w-full">
             Agendar
           </button>
